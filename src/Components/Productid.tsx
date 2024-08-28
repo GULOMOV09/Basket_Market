@@ -55,12 +55,10 @@ const Productid = () => {
     const [error, setError] = useState<boolean>(false);
     const [data, setData] = useState<dataProduct>();
 
-    const BASE_URL = "https://dummyjson.com/products/";
-
     const fetchFunction = async () => {
         setLoading(true);
         try {
-            const response = await fetch(BASE_URL + pathname);
+            const response = await fetch(import.meta.env.VITE_API_BASE_URL + pathname);
             const data = await response.json();
             setLoading(false);
             setData(data);

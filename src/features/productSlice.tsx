@@ -4,8 +4,6 @@ import { RootState } from "../store/store";
 
 //Api call
 
-let BASE_URL = "https://dummyjson.com/products";
-
 export const fetchProductsData = createAsyncThunk(
     "products/fetchProductsData",
 
@@ -13,16 +11,16 @@ export const fetchProductsData = createAsyncThunk(
         console.log(type, "asas");
 
         if (type == "search") {
-            const response = await axios.get(`${BASE_URL}/search?q=${limit}`);
+            const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/search?q=${limit}`);
             return response.data;
         } else if (type == "harflar") {
-            const response = await axios.get(`${BASE_URL}?limit=${limit}&skip=${skip}&sortBy=title&order=asc`);
+            const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}?limit=${limit}&skip=${skip}&sortBy=title&order=asc`);
             return response.data;
         } else if (type == "narxi") {
-            const response = await axios.get(`${BASE_URL}?limit=${limit}&skip=${skip}&sortBy=price&order=asc`);
+            const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}?limit=${limit}&skip=${skip}&sortBy=price&order=asc`);
             return response.data;
         } else {
-            const response = await axios.get(`${BASE_URL}?limit=${limit}&skip=${skip}&total=100`);
+            const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}?limit=${limit}&skip=${skip}&total=100`);
             return response.data;
         }
     }
