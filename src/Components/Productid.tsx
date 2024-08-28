@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { IoArrowBack } from "react-icons/io5";
-import NotFound from "../pages/NotFound";
 
 export interface dataProduct {
     id: number;
